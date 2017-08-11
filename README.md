@@ -13,7 +13,7 @@ I plan on creating this library for the follwing languages:
 * Python (3+)
 * Ruby (TBD)
 
-###TODO
+### TODO
 * Scala implementation
   * Logging
   * Tests
