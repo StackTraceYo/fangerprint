@@ -293,26 +293,23 @@ public class Fangerprinter {
         } else {
             _resolvedDependencies = Sets.newHashSet();
             ClassLoader loader = getClass().getClassLoader();
-            for (String dep : _dependencies.keySet()) {
+            _dependencies.keySet().forEach(dep -> {
                 try {
                     addResolvedDependency(loader, dep);
                 } catch (NoClassDefFoundError e) {
                     //try loading from additional class loaders
-                    if (!_classesLoaders.isEmpty()) {
-                        for (ClassLoader additionalLoader : _classesLoaders) {
-                            try {
-                                addResolvedDependency(additionalLoader, dep);
-                            } catch (ClassNotFoundException e1) {
-                            } catch (NoClassDefFoundError e2) {
-                            }
+                    _classesLoaders.forEach(additionalLoader -> {
+                        try {
+                            addResolvedDependency(additionalLoader, dep);
+                        } catch (ClassNotFoundException e1) {
+                        } catch (NoClassDefFoundError e2) {
                         }
-                    }
+                    });
                 } catch (ClassNotFoundException e) {
                 }
-            }
+            });
             return _resolvedDependencies;
         }
-
     }
 
     private void addResolvedDependency(ClassLoader loader, String dep) throws ClassNotFoundException {
@@ -399,15 +396,13 @@ public class Fangerprinter {
     }
 
     private void initIgnoreJars() {
-        if (!_excludedClassesFromExcludedJar.isEmpty()) {
-            for (Class klass : _excludedClassesFromExcludedJar) {
-                try {
-                    _excludedJarNames.add(getJarName(klass));
-                } catch (Exception e) {
-                    LOGGER.trace("Unable to find location of {}", klass.getName());
-                }
+        _excludedClassesFromExcludedJar.forEach(klass -> {
+            try {
+                _excludedJarNames.add(getJarName(klass));
+            } catch (Exception e) {
+                LOGGER.trace("Unable to find location of {}", klass.getName());
             }
-        }
+        });
     }
 
     private String getJarName(Class klass) {
