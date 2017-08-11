@@ -50,8 +50,8 @@ public class Fangerprinter {
     private List<ClassLoader> _classesLoaders = new ArrayList<>();
     private boolean _excludeJavaBootstrap = false;
 
-    public static FingerprintBuilder newBuilder(Class rootClass) {
-        return new FingerprintBuilder(rootClass);
+    public static FangerprintBuilder newBuilder(Class rootClass) {
+        return new FangerprintBuilder(rootClass);
     }
 
     private ClassVisitor _classVisitor = new ClassVisitor(Opcodes.ASM5) {
@@ -347,7 +347,7 @@ public class Fangerprinter {
         //if no dependencies are found
         if (sorted.size() <= 1) {
             LOGGER.error("Failed to find any dependencies from {}", rootClass.getName());
-            throw new RuntimeException("NO DEPENDENCIES FOUND UNABLE TO FINGERPRINT");
+            throw new RuntimeException("No Dependencies found unable to generate hash");
         }
 
         //hash
@@ -502,41 +502,41 @@ public class Fangerprinter {
     }
 
 
-    public static final class FingerprintBuilder {
+    public static final class FangerprintBuilder {
 
         private Fangerprinter fangerprinter;
 
-        private FingerprintBuilder(Class rootClass) {
+        private FangerprintBuilder(Class rootClass) {
             fangerprinter = new Fangerprinter();
             fangerprinter.setRootClass(rootClass);
         }
 
-        public FingerprintBuilder withClassLoader(ClassLoader classLoader) {
+        public FangerprintBuilder withClassLoader(ClassLoader classLoader) {
             fangerprinter.addClassLoader(classLoader);
             return this;
         }
 
-        public FingerprintBuilder withHashType(HashFunction hashFunction) {
+        public FangerprintBuilder withHashType(HashFunction hashFunction) {
             fangerprinter.setHashType(hashFunction);
             return this;
         }
 
-        public FingerprintBuilder ignoreJarWithClass(Class klass) {
+        public FangerprintBuilder ignoreJarWithClass(Class klass) {
             fangerprinter.addClassToIgnoreJar(klass);
             return this;
         }
 
-        public FingerprintBuilder ignoreJarWithName(String jarName) {
+        public FangerprintBuilder ignoreJarWithName(String jarName) {
             fangerprinter.addJarNameToIgnore(jarName);
             return this;
         }
 
-        public FingerprintBuilder ignoreClass(Class klass) {
+        public FangerprintBuilder ignoreClass(Class klass) {
             fangerprinter.addClassToIgnore(klass);
             return this;
         }
 
-        public FingerprintBuilder ignoreJava(boolean ignore) {
+        public FangerprintBuilder ignoreJava(boolean ignore) {
             fangerprinter._excludeJavaBootstrap = ignore;
             return this;
         }

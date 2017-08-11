@@ -280,23 +280,23 @@ public class FangerprinterTest {
     //Utility Methods
     private static void compileFirstTestClass() throws Exception {
 
-        compileTestClass("com/stacktrace/yo/fangerprint/1/TestClassToFingerprint.java");
+        compileTestClass("com/stacktrace/yo/fangerprint/1/TestClassToHash.java");
     }
 
     private static void compileSecondTestClass() throws Exception {
-        compileTestClass("com/stacktrace/yo/fangerprint/2/TestClassToFingerprint.java");
+        compileTestClass("com/stacktrace/yo/fangerprint/2/TestClassToHash.java");
     }
 
     private static void compileThirdTestClass() throws Exception {
-        compileTestClass("com/stacktrace/yo/fangerprint/3/TestClassToFingerprint.java");
+        compileTestClass("com/stacktrace/yo/fangerprint/3/TestClassToHash.java");
     }
 
     private static void compileFourthTestClass() throws Exception {
-        compileTestClass("com/stacktrace/yo/fangerprint/4/TestClassToFingerprint.java");
+        compileTestClass("com/stacktrace/yo/fangerprint/4/TestClassToHash.java");
     }
 
     private static void compileFifthTestClass() throws Exception {
-        compileTestClass("com/stacktrace/yo/fangerprint/5/TestClassToFingerprint.java");
+        compileTestClass("com/stacktrace/yo/fangerprint/5/TestClassToHash.java");
     }
 
     private static ClassLoader getFirstTestClassloader() throws Exception {
@@ -320,7 +320,7 @@ public class FangerprinterTest {
     }
 
     private static Class loadTestClass(ClassLoader loader) throws ClassNotFoundException {
-        return FangerprinterTest.loadTestClass(loader, "TestClassToFingerprint");
+        return FangerprinterTest.loadTestClass(loader, "TestClassToHash");
     }
 
     //Compiles a class given a directory

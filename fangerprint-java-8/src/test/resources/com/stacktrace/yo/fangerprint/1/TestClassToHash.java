@@ -6,20 +6,15 @@ import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class TestClassToFingerprint {
-
-// change in Fields
-
-    TestClassToFingerprint newDependency = new TestClassToFingerprint();
+public class TestClassToHash {
 
     public static class TestClass implements TestIface {
         @TestAnnotation(TestAnnotationEnum.VALUE)
         public int field;
-        public TestDependency dependency;
         public final List<String> list;
 
         public TestClass() {
+            // Non-signature dependency
             list = new ArrayList<String>();
         }
 
@@ -38,7 +33,7 @@ public class TestClassToFingerprint {
     }
 
     @Retention(RetentionPolicy.RUNTIME)
-    @Target({ElementType.FIELD})
+    @Target({ ElementType.FIELD })
     public @interface TestAnnotation {
         TestAnnotationEnum value();
     }

@@ -6,7 +6,7 @@ import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestClassToFingerprint {
+public class TestClassToHash {
 
     public static class TestClass implements TestIface {
         @TestAnnotation(TestAnnotationEnum.VALUE)
