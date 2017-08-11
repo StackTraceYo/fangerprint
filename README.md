@@ -9,16 +9,11 @@ The loaded class names are then read and hashed giving a hash that represents th
 
 I plan on creating this library for the follwing languages:
 * Scala (Requires Java 8)
-* Java (7 and 8)
+* Java (7, 8)
 * Python (3+)
 * Ruby (TBD)
 
 ### TODO
-* Scala implementation
-  * Logging
-  * Tests
-  * Error Handling
-  * Rewrite the configuration
-  * Documentation
-  * More functional
-* All other languages have not been started
+* Java 7
+* Python
+* Ruby
