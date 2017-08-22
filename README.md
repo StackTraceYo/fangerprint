@@ -1,4 +1,4 @@
-# fangerprint
+# sash
 Library for software fingerprinting.
 
 Generally this library has the purpose of seeing what dependencies are being used at runtime.
